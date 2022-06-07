@@ -1,0 +1,30 @@
+install poetry
+
+//start poetry project in repo
+poetry init
+
+//enter repo poetry
+poetry shell
+
+// see poetry config
+cat pyproject.toml
+
+// add packages
+poetry add
+
+// run python prog
+poetry run python FILE.PY
+
+// quit poetry
+exit
+
+// POETRY WONT RUN WITH GOOD PYTHON VERSION
+// see which version is running normally,
+// check good version is installed
+// take path and stick it in poetry
+
+// select specific python version if fail at init
+poetry env use PATH
+
+// see what python version is running outside poetry
+pyenv which python
