@@ -31,8 +31,7 @@ def start_engine():
 #     session = Session()
 #     return session
 
-def launch_db(engine):
-    # engine = create_engine('sqlite:///facts.db', echo=True)
+def create_facts_table(engine):
     metadata = MetaData()
     facts = Table(
     "facts",
@@ -45,3 +44,17 @@ def launch_db(engine):
     )
     metadata.create_all(engine)
     return facts
+
+def launch_db(engine):
+    # engine = create_engine('sqlite:///facts.db', echo=True)
+    metadata = MetaData()
+    pics = Table(
+    "pics",
+    metadata,
+    Column("pic_id", Integer(), primary_key=True, autoincrement=True),
+    Column("picture", String(), nullable=False),
+    Column("created_on", DateTime(), default=datetime.now),
+    Column("updated_on", DateTime(), default=datetime.now, onupdate=datetime.now),
+    )
+    metadata.create_all(engine)
+    return pics
